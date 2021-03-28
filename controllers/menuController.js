@@ -1,25 +1,28 @@
-const { Perfil } = require("../models");
+const { Menu } = require('../models');
 const validatorjs = require("validatorjs");
 
 function getBodyParams( params ) {
 
   const {
     nombre,
-    valor
+    tipo,
+    clave
   } = params.body;
 
   return {
     nombre,
-    valor
-  }
+    tipo,
+    clave
+  };
 
 }
 
 function validatorParams( bodyParams = {} ) {
 
   const validator = new validatorjs( bodyParams, {
-    nombre: "required|string",
-    valor: "required|string"
+    nombre: 'required|string',
+    tipo: 'required|string',
+    clave: 'required|string'
   });
 
   return validator;
@@ -28,25 +31,25 @@ function validatorParams( bodyParams = {} ) {
 
 exports.create = async ( req, res ) => {
   try {
-
+    
     const bodyParams = getBodyParams( req );
     const validator = validatorParams( bodyParams );
 
     if ( validator.fails() ) return res
-      .status(403)
+      .status(201)
       .json({
-        message: "invalid_params",
+        message: 'invalid_params',
         errors: validator.errors.errors
       });
-
-    const perfil = await Perfil.create( bodyParams );
+    
+    const menu = await Menu.create( bodyParams );
 
     return res
       .json(201)
       .message({
-        message: "created"
+        message: 'created'
       });
-    
+
   } catch (e) {
     console.log(e);
     
@@ -61,10 +64,10 @@ exports.create = async ( req, res ) => {
 exports.findAll = async ( req, res ) => {
   try {
 
-    const perfiles = await Perfil.findAll({ where: { isDeleted: false } });
+    const menus = await Departamento.Menu({ where: { isDeleted: false } });
 
     return res
-      .json( perfiles );
+      .json( menus );
     
   } catch (e) {
     console.log(e);
@@ -82,10 +85,10 @@ exports.findOne = async ( req, res ) => {
 
     const { id } = req.params;
 
-    const perfil = await Perfil.findByPk( id );
+    const menu = await Menu.findOne({ where: { id } });
 
     return res
-      .json( perfil );
+      .json( menu );
     
   } catch (e) {
     console.log(e);
@@ -107,21 +110,21 @@ exports.update = async ( req, res ) => {
     const validator = validatorParams( bodyParams );
 
     if ( validator.fails() ) return res
-      .status(403)
+      .status(201)
       .json({
-        message: "invalid_params",
+        message: 'invalid_params',
         errors: validator.errors.errors
       });
-
-    const perfil = await Perfil.update( bodyParams, {
+    
+    const menu = await Menu.update( bodyParams, {
       where: { id }
     });
 
     return res
       .status(202)
       .json({
-        message: "updated"
-      })
+        message: 'updated'
+      });
     
   } catch (e) {
     console.log(e);
@@ -139,14 +142,14 @@ exports.deleteOne = async ( req, res ) => {
 
     const { id } = req.params;
     
-    await Perfil.update({ isDeleted: true }, {
+    const menu = await Menu.update( { isDeleted: false }, {
       where: { id }
     });
 
     return res
       .status(202)
       .json({
-        message: "deleted"
+        message: 'deleted'
       });
     
   } catch (e) {
@@ -159,3 +162,6 @@ exports.deleteOne = async ( req, res ) => {
       });
   }
 }
+
+
+

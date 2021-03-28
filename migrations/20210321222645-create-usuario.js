@@ -32,6 +32,8 @@ module.exports = {
       urlImagen: {
         type: Sequelize.STRING
       },
+      idPerfil: Sequelize.INTEGER,
+      idPuesto: Sequelize.INTEGER,
       isDeleted: {
         type: Sequelize.BOOLEAN,
         defaultValue: false

@@ -1,4 +1,4 @@
-const { Perfil } = require("../models");
+const { Departamento } = require('../models/departamento');
 const validatorjs = require("validatorjs");
 
 function getBodyParams( params ) {
@@ -11,15 +11,15 @@ function getBodyParams( params ) {
   return {
     nombre,
     valor
-  }
+  };
 
 }
 
 function validatorParams( bodyParams = {} ) {
 
   const validator = new validatorjs( bodyParams, {
-    nombre: "required|string",
-    valor: "required|string"
+    nombre: 'required|string',
+    valor: 'required|string',
   });
 
   return validator;
@@ -28,25 +28,25 @@ function validatorParams( bodyParams = {} ) {
 
 exports.create = async ( req, res ) => {
   try {
-
+    
     const bodyParams = getBodyParams( req );
     const validator = validatorParams( bodyParams );
 
     if ( validator.fails() ) return res
-      .status(403)
+      .status(201)
       .json({
-        message: "invalid_params",
+        message: 'invalid_params',
         errors: validator.errors.errors
       });
-
-    const perfil = await Perfil.create( bodyParams );
+    
+    const departamento = await Departamento.create( bodyParams );
 
     return res
       .json(201)
       .message({
-        message: "created"
+        message: 'created'
       });
-    
+
   } catch (e) {
     console.log(e);
     
@@ -61,10 +61,10 @@ exports.create = async ( req, res ) => {
 exports.findAll = async ( req, res ) => {
   try {
 
-    const perfiles = await Perfil.findAll({ where: { isDeleted: false } });
+    const departamentos = await Departamento.findAll({ where: { isDeleted: false } });
 
     return res
-      .json( perfiles );
+      .json( departamentos );
     
   } catch (e) {
     console.log(e);
@@ -82,10 +82,10 @@ exports.findOne = async ( req, res ) => {
 
     const { id } = req.params;
 
-    const perfil = await Perfil.findByPk( id );
+    const departamento = await Departamento.findOne({ where: { id } });
 
     return res
-      .json( perfil );
+      .json( departamento );
     
   } catch (e) {
     console.log(e);
@@ -107,21 +107,21 @@ exports.update = async ( req, res ) => {
     const validator = validatorParams( bodyParams );
 
     if ( validator.fails() ) return res
-      .status(403)
+      .status(201)
       .json({
-        message: "invalid_params",
+        message: 'invalid_params',
         errors: validator.errors.errors
       });
-
-    const perfil = await Perfil.update( bodyParams, {
+    
+    const departamento = await Departamento.update( bodyParams, {
       where: { id }
     });
 
     return res
       .status(202)
       .json({
-        message: "updated"
-      })
+        message: 'updated'
+      });
     
   } catch (e) {
     console.log(e);
@@ -139,14 +139,14 @@ exports.deleteOne = async ( req, res ) => {
 
     const { id } = req.params;
     
-    await Perfil.update({ isDeleted: true }, {
+    const departamento = await Departamento.update( { isDeleted: false }, {
       where: { id }
     });
 
     return res
       .status(202)
       .json({
-        message: "deleted"
+        message: 'deleted'
       });
     
   } catch (e) {
@@ -159,3 +159,4 @@ exports.deleteOne = async ( req, res ) => {
       });
   }
 }
+

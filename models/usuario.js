@@ -10,11 +10,21 @@ module.exports = (sequelize, DataTypes) => {
      * The `models/index` file will call this method automatically.
      */
     static associate(models) {
-      // define association here
+      
+      this.belongsTo( models.Perfil, {
+        as: 'perfil',
+        foreignKey: 'idPerfil'
+      });
+
+      this.belongsTo( models.Puesto, {
+        as: 'Puesto',
+        foreignKey: 'idPuesto'
+      });
+
+
     }
   };
   Usuario.init({
-    
     nombre: DataTypes.STRING,
     apellidos: DataTypes.STRING,
     nombreCompleto: DataTypes.STRING,
@@ -23,6 +33,8 @@ module.exports = (sequelize, DataTypes) => {
     password: DataTypes.STRING,
     imagen: DataTypes.STRING,
     urlImagen: DataTypes.STRING,
+    idPerfil: DataTypes.INTEGER,
+    idPuesto: DataTypes.INTEGER,
     isDeleted: {
       type: DataTypes.BOOLEAN,
       defaultValue: false
