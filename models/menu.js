@@ -24,6 +24,25 @@ module.exports = (sequelize, DataTypes) => {
   }, {
     sequelize,
     modelName: 'Menu',
+    hooks: {
+
+      beforeCreate: ( menu ) => {
+
+        const clave = `${menu.nombre}-${menu.tipo}`;
+
+        menu.clave = clave;
+
+      },
+
+      beforeUpdate: ( menu ) => {
+
+        const clave = `${menu.nombre}-${menu.tipo}`;
+
+        menu.clave = clave;
+
+      }
+
+    }
   });
   return Menu;
 };

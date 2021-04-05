@@ -1,5 +1,7 @@
-const { Departamento } = require('../models/departamento');
+const { Departamento } = require('../models');
 const validatorjs = require("validatorjs");
+const pager = require("../utils/pager");
+const { Op } = require('sequelize');
 
 function getBodyParams( params ) {
 
@@ -26,6 +28,19 @@ function validatorParams( bodyParams = {} ) {
 
 }
 
+function getQuery( params = {} ) {
+
+  let query = {
+    isDeleted: false,
+    nombre: {
+      [ Op.like ]: `%${params.searchText}%`
+    }
+  };
+
+  return query;
+
+}
+
 exports.create = async ( req, res ) => {
   try {
     
@@ -33,7 +48,7 @@ exports.create = async ( req, res ) => {
     const validator = validatorParams( bodyParams );
 
     if ( validator.fails() ) return res
-      .status(201)
+      .status(400)
       .json({
         message: 'invalid_params',
         errors: validator.errors.errors
@@ -42,8 +57,8 @@ exports.create = async ( req, res ) => {
     const departamento = await Departamento.create( bodyParams );
 
     return res
-      .json(201)
-      .message({
+      .status(201)
+      .json({
         message: 'created'
       });
 
@@ -61,10 +76,33 @@ exports.create = async ( req, res ) => {
 exports.findAll = async ( req, res ) => {
   try {
 
-    const departamentos = await Departamento.findAll({ where: { isDeleted: false } });
+    const {
+      items,
+      page,
+      searchText
+    } = req.query;
+
+    const query = getQuery( req.query );
+
+    const pagination = pager(
+      await Departamento.count({ where: query }),
+      page,
+      items
+    );
+
+    const departamentos = await Departamento.findAll({ 
+      where: query,
+      limit: pagination.pageSize,
+      offset: pagination.offset
+    });
+
+    console.log( pagination );
 
     return res
-      .json( departamentos );
+      .json({
+        items: departamentos,
+        pager: pagination
+      });
     
   } catch (e) {
     console.log(e);
@@ -139,12 +177,12 @@ exports.deleteOne = async ( req, res ) => {
 
     const { id } = req.params;
     
-    const departamento = await Departamento.update( { isDeleted: false }, {
+    const departamento = await Departamento.update( { isDeleted: true }, {
       where: { id }
     });
 
     return res
-      .status(202)
+      .status(204)
       .json({
         message: 'deleted'
       });

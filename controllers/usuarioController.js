@@ -1,5 +1,6 @@
 const { Usuario } = require("../models");
 const validatorjs = require("validatorjs");
+const pager = require('../utils/pager');
 
 function getBodyParams( params ) {
 
@@ -74,6 +75,21 @@ exports.create = async ( req, res ) => {
 
 exports.findAll = async ( req, res ) => {
   try {
+
+    const {
+      items,
+      page
+    } = req.query;
+
+    const query = {
+      where: { isDeleted: false }
+    };
+
+    const pagination = pager(
+      await Usuario.count( query ),
+      page,
+      items
+    );
 
     const usuarios = await Usuario.findAll({ where: { isDeleted: false } });
 
