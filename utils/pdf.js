@@ -3,11 +3,16 @@ const pug = require("pug");
 
 class HtmlPdfGenerator {
 
-  generarPdf( content = "" ) {
+  generarPdf( content = "", header = "", footer = "" ) {
 
     return new Promise( (resolve, reject) => {
 
-      pdf.create(content).toFile( 'html.pdf', ( err, res ) => {
+      pdf.create(content, {
+        "header": {
+          "height": "40mm",
+          "contents": header
+        }
+      }).toFile( 'html.pdf', ( err, res ) => {
 
         if ( err )
           reject( false );

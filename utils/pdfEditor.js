@@ -24,7 +24,11 @@ class PdfEditor {
 
     return `
       <div id="pdf-header" >
-        <h1>My first report on NodeJs</h1>
+        <div class="title-row">
+          <h1>My first report on NodeJs</h1>
+        </div>
+          <h3>Author: Rick Gomez Perez</h3>
+          <p class="fecha-label" >19/04/2021</p>
       </div>
     `;
 
@@ -39,10 +43,42 @@ class PdfEditor {
 
   generateHtml() {
 
+    const data = [
+      { name: 'rick', email: 'rickgomezperez@gmail.com', age: 22 },
+      { name: 'rick', email: 'rickgomezperez@gmail.com', age: 22 },
+      { name: 'rick', email: 'rickgomezperez@gmail.com', age: 22 },
+      { name: 'rick', email: 'rickgomezperez@gmail.com', age: 22 },
+      
+    ]
+
+    let tableData = "";
+
+    data.forEach( item => {
+
+      tableData += `
+        <tr>
+          <td>${ item.name }</td>
+          <td>${ item.email }</td>
+          <td>${ item.age }</td>
+        </tr>
+      `;
+
+    });
+
     return `
       ${this.createStyles()}
-      ${this.createHeader()}
-      ${this.createFooter()}
+      <table id="table-pdf" >
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Age</th>
+          </tr>
+        </thead>
+        <tbody>
+          ${tableData}
+        </tbody>
+      </table>
     `;
     
   }

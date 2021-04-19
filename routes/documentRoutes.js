@@ -8,10 +8,10 @@ const routes = Router();
 routes.get("/basic", async ( req, res ) => {
 
   const content = pdfEditor.generateHtml();
+  const headerContent = pdfEditor.createHeader();
+  const footerContent = pdfEditor.createFooter();
 
-  console.log(content);
-
-  const file = await pdfGenerator.generarPdf( content );
+  const file = await pdfGenerator.generarPdf( content, headerContent, footerContent );
 
   return res.send("<h1>Pdf file generated! :D</h1>")
 
