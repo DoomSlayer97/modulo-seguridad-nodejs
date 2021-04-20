@@ -1,0 +1,55 @@
+.table td,
+.table th {
+    vertical-align: middle !important;
+}
+
+.table thead th {
+    vertical-align: middle;
+    border-top: 1px solid $gray-600 !important;
+    background-color: $gray-200 !important;
+    border-bottom: 1px solid $gray-600 !important;
+}
+
+.page-link {
+    color: $gray-800 !important;
+    background-color: transparent;
+    border-radius: 50% !important;
+    border-color: $gray-700;
+    padding: 0rem;
+    text-align: center;
+    line-height: 30px;
+    width: 30px;
+    height: 30px;
+    font-weight: 700;
+    &:hover {
+        color: #fff !important;
+        background-color: $primary !important;
+        border-color: $primary !important;
+    }
+}
+
+.pagination {
+    .page-item {
+        margin-right: 8px;
+    }
+    .page-item:last-child {
+        margin-right: 0px;
+    }
+}
+
+.page-item.active .page-link {
+    z-index: 1;
+    color: #fff !important;
+    background-color: $primary !important;
+    border-color: $primary !important;
+}
+
+.page-link:focus {
+    box-shadow: 0 0 0 0.2rem rgba(1, 113, 122, 0.25);
+}
+
+.page-item.disabled .page-link {
+    color: #ffffff !important;
+    background-color: transparent;
+    border-color: #ffffff;
+}

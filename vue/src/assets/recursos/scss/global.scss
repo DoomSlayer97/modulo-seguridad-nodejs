@@ -1,0 +1,70 @@
+// Global styling for this template
+body {
+    background: $gray-300;
+    font-family: $roboto;
+    font-size: 14px;
+    font-weight: 300;
+    margin-bottom: 1.5rem;
+}
+
+*:focus {
+    outline: none !important;
+}
+
+a {
+    color: $blue;
+    &:hover {
+        color: $blue;
+    }
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    margin-bottom: 0rem !important;
+    color: $gray-800;
+}
+
+input,
+select,
+textarea {
+    font-size: 14px !important;
+}
+
+body.fixed-nav {
+    padding-top: 54px;
+    @media (min-width: 992px) {
+        padding-top: 56px;
+    }
+}
+
+input:read-only {
+    cursor: auto !important;
+}
+
+// Scroll to top button
+.scroll-to-top {
+    position: fixed;
+    right: 15px;
+    bottom: 3px;
+    display: none;
+    width: 50px;
+    height: 50px;
+    text-align: center;
+    color: white;
+    background: fade-out($gray-800, .5);
+    line-height: 45px;
+    &:focus,
+    &:hover {
+        color: white;
+    }
+    &:hover {
+        background: $gray-800;
+    }
+    i {
+        font-weight: 800;
+    }
+}

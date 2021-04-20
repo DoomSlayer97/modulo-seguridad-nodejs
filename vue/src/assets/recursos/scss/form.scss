@@ -1,0 +1,381 @@
+label {
+    color: $gray-800;
+    font-weight: 800;
+}
+
+.form-control {
+    background-color: $white;
+    &:focus {
+        background-color: $white;
+        box-shadow: none;
+        border: 1px solid $primary;
+    }
+}
+
+.is-valid:hover {
+    border: 1px solid #28a745 !important;
+}
+
+.is-invalid:hover {
+    border: 1px solid #dc3545 !important;
+}
+
+
+/* Checkbox */
+
+.container-check {
+    display: block;
+    position: relative;
+    padding-top: 3px;
+    padding-left: 35px;
+    cursor: pointer;
+    font-size: 14px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.container-check input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
+
+.checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 25px;
+    width: 25px;
+    background-color: #eee;
+    border: 1px solid $gray-700;
+}
+
+.container-check:hover input~.checkmark {
+    background-color: #ccc;
+}
+
+.container-check input:checked~.checkmark {
+    background-color: $primary;
+}
+
+.checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+
+.container-check input:checked~.checkmark:after {
+    display: block;
+}
+
+.container-check .checkmark:after {
+    left: 8px;
+    top: 3px;
+    width: 8px;
+    height: 14px;
+    border: solid white;
+    border-width: 0 2px 2px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
+
+
+/*Radio*/
+
+.cont-radio {
+    display: block;
+    position: relative;
+    padding-left: 35px;
+    padding-top: 3px;
+    cursor: pointer;
+    font-size: 14px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+
+/* Hide the browser's default radio button */
+
+.cont-radio input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+}
+
+
+/* Create a custom radio button */
+
+.checkradio {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 25px;
+    width: 25px;
+    background-color: #eee;
+    border: 1px solid $gray-700;
+    border-radius: 50%;
+}
+
+
+/* On mouse-over, add a grey background color */
+
+.cont-radio:hover input~.checkradio {
+    background-color: #ccc;
+}
+
+
+/* When the radio button is checked, add a blue background */
+
+.cont-radio input:checked~.checkradio {
+    background-color: $primary;
+}
+
+
+/* Create the indicator (the dot/circle - hidden when not checked) */
+
+.checkradio:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+
+
+/* Show the indicator (dot/circle) when checked */
+
+.cont-radio input:checked~.checkradio:after {
+    display: block;
+}
+
+
+/* Style the indicator (dot/circle) */
+
+.cont-radio .checkradio:after {
+    top: 8px;
+    left: 8px;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: white;
+}
+
+
+/*Select*/
+
+select,
+option {
+    color: $gray-800;
+}
+
+
+/*File*/
+
+.custom-file-input-image {
+    display: inline-block;
+    overflow: hidden;
+    padding-right: 35px;
+    position: relative;
+    width: 100%;
+    button[type="button"] {
+        position: absolute;
+        width: 40px;
+        height: 35px;
+        line-height: 38px;
+        background: linear-gradient(40deg, #1c97c4, #303f9f) !important;
+        border-top-right-radius: .25rem;
+        border-bottom-right-radius: .25rem;
+        border: none;
+        top: 0px;
+        right: 0px;
+        padding: 0rem;
+        display: inline-block;
+        text-align: center;
+        color: #fff;
+    }
+}
+
+.custom-file-input-image-lg button[type="button"] {
+    width: 40px !important;
+    height: 39px !important;
+    line-height: 39px !important;
+}
+
+.custom-file-input-image-sm button[type="button"] {
+    width: 40px !important;
+    height: 31px !important;
+    line-height: 36px !important;
+}
+
+.custom-file-input-image input[type="file"] {
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    filter: alpha(opacity=0);
+    zoom: 1;
+    /* Fix for IE7 */
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 999;
+    cursor: pointer;
+}
+
+//Toogle
+.label {
+    display: inline-flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.label-text {
+    margin-left: 8px;
+}
+
+.toggle {
+    isolation: isolate;
+    position: relative;
+    height: 24px;
+    width: 48px;
+    border-radius: 15px;
+    background: $gray-500;
+    overflow: hidden;
+}
+
+.toggle-inner {
+    z-index: 2;
+    position: absolute;
+    top: 1px;
+    left: 1px;
+    height: 22px;
+    width: 46px;
+    border-radius: 15px;
+    overflow: hidden;
+}
+
+.active-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 200%;
+    background: $info;
+    transform: translate3d(-100%, 0, 0);
+    transition: transform 0.05s linear 0.17s;
+}
+
+.toggle-state {
+    display: none;
+}
+
+.indicator {
+    height: 100%;
+    width: 200%;
+    background: white;
+    border-radius: 13px;
+    transform: translate3d(-75%, 0, 0);
+    transition: transform 0.35s cubic-bezier(0.85, 0.05, 0.18, 1.35);
+}
+
+.toggle-state:checked~.active-bg {
+    transform: translate3d(-50%, 0, 0);
+}
+
+.toggle-state:checked~.toggle-inner .indicator {
+    transform: translate3d(25%, 0, 0);
+}
+
+//Toogle-dos
+.label-02 {
+    display: inline-flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.label-text-02 {
+    margin-left: 8px;
+}
+
+.toggle-02 {
+    isolation: isolate;
+    position: relative;
+    height: 14px;
+    width: 28px;
+    border-radius: 15px;
+    background: $gray-500;
+    overflow: hidden;
+}
+
+.toggle-inner-02 {
+    z-index: 2;
+    position: absolute;
+    top: 1px;
+    left: 1px;
+    height: 12px;
+    width: 26px;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.active-bg-02 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 200%;
+    background: $info;
+    transform: translate3d(-100%, 0, 0);
+    transition: transform 0.05s linear 0.17s;
+}
+
+.toggle-state-02 {
+    display: none;
+}
+
+.indicator-02 {
+    height: 100%;
+    width: 200%;
+    background: white;
+    border-radius: 13px;
+    transform: translate3d(-75%, 0, 0);
+    transition: transform 0.35s cubic-bezier(0.85, 0.05, 0.18, 1.35);
+}
+
+.toggle-state-02:checked~.active-bg-02 {
+    transform: translate3d(-50%, 0, 0);
+}
+
+.toggle-state-02:checked~.toggle-inner-02 .indicator-02 {
+    transform: translate3d(25%, 0, 0);
+}
+
+//imagen producto
+.form-imagen {
+    width: 100%;
+}
+
+.mov-img {
+    width: 310px;
+    height: 310px;
+    border: $gray-600 5px dotted;
+    margin: auto;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -ms-flex-line-pack: center;
+    align-content: center;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    text-align: center;
+    cursor: pointer;
+}

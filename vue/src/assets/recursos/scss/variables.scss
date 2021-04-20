@@ -1,0 +1,50 @@
+// Color Variables
+// Bootstrap Color Defaults
+$white: #fff !default;
+
+$gray-100: #f8f9fa !default;
+$gray-200: #e9ecef !default;
+$gray-300: #dee2e6 !default;
+$gray-400: #ced4da !default;
+$gray-500: #adb5bd !default;
+$gray-600: #868e96 !default;
+$gray-700: #495057 !default;
+$gray-800: #343a40 !default;
+$gray-900: #212529 !default;
+$black: #000 !default;
+
+$blue: #007bff !default;
+$indigo: #6610f2 !default;
+$purple: #6f42c1 !default;
+$pink: #e83e8c !default;
+$red: #dc3545 !default;
+$orange: #fd7e14 !default;
+$yellow: #ffc107 !default;
+$green: #28a745 !default;
+$teal: #20c997 !default;
+$cyan: #17a2b8 !default;
+$lemon: #bbd540 !default;
+
+$primary:#2196f3 !default;
+$primary-h:#0c83e2 !default;
+$success:#19d895 !default;
+$success-h:#15b67d !default;
+$info:#8862e0 !default;
+$info-h:#7042da !default;
+$warning:#ffaf00 !default;
+$warning-h:#d99500 !default;
+$danger:#ff6258 !default;
+$danger-h:#ff3e32 !default;
+$dark:#252C46 !default;
+$secondary:#dde4eb !default;
+$secondary-h:#c5d1dd !default;
+
+$roboto: "roboto", sans-serif;
+
+// Spacing Variables
+// Change below variable if the height of the navbar changes
+$navbar-base-height: 59px;
+// Change below variable to change the width of the sidenav
+$sidenav-base-width: 250px;
+// Change below variable to change the width of the sidenav when collapsed
+$sidenav-collapsed-width: 55px;
