@@ -1,0 +1,80 @@
+.nav-tabs-table {
+    border-bottom: 1px solid $gray-500;
+    margin-bottom: 0rem;
+    .nav-link {
+        padding: 0.5rem 1rem !important;
+        height: auto !important;
+        display: inline-block !important;
+        font-family: $roboto;
+        font-weight: 700;
+        color: #ffffff;
+        border-top-left-radius: 0.25rem;
+        border-top-right-radius: 0.25rem;
+        background-color: $gray-500;
+        position: relative;
+        border: none;
+        &::after {
+            content: '';
+            position: absolute;
+            z-index: 1;
+            top: 0;
+            right: -.5em;
+            bottom: 0;
+            width: 1em;
+            background-color: $gray-500;
+            transform: skew(10deg);
+            border-radius: 0 5px 0 0;
+            box-shadow: 2px -1px 3px -2px rgba(0, 0, 0, .4);
+        }
+    }
+    .nav-link i {
+        margin-bottom: 0rem;
+        font-size: 1rem;
+    }
+    .nav-link:hover,
+    .nav-tabs .nav-link:focus {
+        color: #ffffff;
+        background-color: $gray-600;
+        &::after {
+            content: '';
+            position: absolute;
+            z-index: 1;
+            top: 0;
+            right: -.5em;
+            bottom: 0;
+            width: 1em;
+            background: #ddd;
+            background-color: $gray-600;
+            transform: skew(10deg);
+            border-radius: 0 5px 0 0;
+            box-shadow: 2px -1px 3px -2px rgba(0, 0, 0, .4);
+        }
+    }
+    .nav-link.active,
+    .nav-item.show .nav-link {
+        color: #ffffff;
+        background-color: $gray-600;
+        &::after {
+            content: '';
+            position: absolute;
+            z-index: 1;
+            top: 0;
+            right: -.5em;
+            bottom: 0;
+            width: 1em;
+            background: #ddd;
+            background-color: $gray-600;
+            transform: skew(10deg);
+            border-radius: 0 5px 0 0;
+            box-shadow: 2px -1px 3px -2px rgba(0, 0, 0, .4);
+        }
+    }
+}
+
+.tab-content-table {
+    padding: 0.6rem;
+}
+
+input:read-only {
+    cursor: url(http://falconmasters.com/img/cursor.gif), auto;
+}

@@ -1,0 +1,15 @@
+{
+    "version": 3,
+    "mappings": "AGAA,AAAA,IAAI,CAAC;EACD,UAAU,EAAE,KAAK;EACjB,SAAS,EAAE,IAAI;EACf,WAAW,EAAE,GAAG;EAChB,aAAa,EAAE,MAAM;CACxB;;AAED,AAAA,CAAC,AAAA,MAAM,CAAC;EACJ,OAAO,EAAE,IAAI;CAChB",
+    "sources": [
+        "../scss/main.scss",
+        "../scss/variables.scss",
+        "../scss/mixins.scss",
+        "../scss/global.scss",
+        "../scss/form.scss",
+        "../scss/utilities.scss",
+        "../scss/responsive.scss"
+    ],
+    "names": [],
+    "file": "main.css"
+}

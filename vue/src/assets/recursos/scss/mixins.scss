@@ -1,0 +1,36 @@
+@mixin rotate {
+  -webkit-transform: rotate(15deg);
+  -ms-transform: rotate(15deg);
+  transform: rotate(15deg);
+}
+
+@mixin btn-solid ($color1, $color2) {
+  background: linear-gradient(40deg, $color1, $color2) !important;
+  box-shadow: 0 .125rem .25rem 0 rgba(255, 255, 255, .2) !important;
+  transition: all 0.3s ease 0s;
+
+  &:hover {
+    transition: all 0.3s ease 0s;
+    background: linear-gradient(40deg, $color2, $color1) !important;
+  }
+
+  &:focus {
+    box-shadow:none !important;
+  }
+}
+
+@mixin btn-outline  ($color1, $color2) {
+  background: transparent;
+  border:1px solid $color1;
+  box-shadow: 0 .125rem .25rem 0 rgba(255, 255, 255, .2) !important;
+  transition: all 0.3s ease 0s;
+
+  &:hover {
+    transition: all 0.3s ease 0s;
+    background: linear-gradient(40deg, $color2, $color1) !important;
+  }
+
+  &:focus {
+    box-shadow:none !important;
+  }
+}

@@ -1,0 +1,49 @@
+.container-flex {
+    display: flex;
+    flex-wrap: wrap;
+    word-wrap: break-word;
+}
+
+.container-box {
+    width: 120px;
+    font-size: 16px;
+    font-weight: 500;
+    display: table-cell;
+    vertical-align: middle;
+    &:hover {
+        height: 118px;
+        box-shadow: 0px 15px 20px #1d6aba66 !important;
+        transform: translateY(-7px);
+        transition: all 0.3s ease 0s;
+        font-size: 16px;
+        font-weight: 600;
+        .color-text {
+            color: #131313 !important;
+        }
+    }
+}
+
+.flexbox-01 {
+    width: 120px;
+    height: 120px;
+    color: #fff;
+    background-color: #1c85e8;
+    border-color: #1c85e8;
+    padding: 0rem 0rem !important;
+    border-radius: 0.313rem;
+    transition: all 0.3s ease 0s;
+    display: table;
+    line-height: 16px;
+    box-sizing: border-box;
+    cursor: pointer;
+}
+
+.flexbox-01 i {
+    font-size: 80px;
+    line-height: 1.5 !important;
+}
+
+.text-box {
+    word-wrap: break-word;
+    color: $black;
+}

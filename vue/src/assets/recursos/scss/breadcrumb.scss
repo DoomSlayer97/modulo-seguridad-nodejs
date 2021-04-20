@@ -1,0 +1,12 @@
+.breadcrumb {
+    background-color: $gray-200;
+    border-radius: 0rem;
+    font-weight: 600;
+}
+
+.wrapper-text {
+    color: $blue;
+    &:hover {
+        color: $blue;
+    }
+}

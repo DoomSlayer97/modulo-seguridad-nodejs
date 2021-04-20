@@ -1,0 +1,122 @@
+.btn {
+    box-shadow: 1px 0 5px rgba(0, 0, 0, 0.2) !important;
+    -webkit-transition: all 0.3s ease 0s !important;
+    transition: all 0.3s ease 0s !important;
+    &:hover {
+        -webkit-transition: all 0.3s ease 0s !important;
+        transition: all 0.3s ease 0s !important;
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.8) !important;
+    }
+}
+
+.btn-01 {
+    color: #ffffff;
+    @include btn-solid ($primary, $primary-h);
+    &:hover {
+        color: rgba(255, 255, 255, 0.8);
+    }
+}
+
+.btn-02 {
+    color: #ffffff;
+    @include btn-solid ($info, $info-h);
+    &:hover {
+        color: rgba(255, 255, 255, 0.8);
+    }
+}
+
+.btn-03 {
+    color: #000000;
+    @include btn-solid ($warning, $warning-h);
+    &:hover {
+        color: rgba(0, 0, 0, 0.8);
+    }
+}
+
+.btn-04 {
+    color: #ffffff;
+    @include btn-solid ($danger, $danger-h);
+    &:hover {
+        color: rgba(255, 255, 255, 0.8);
+    }
+}
+
+.btn-05 {
+    color: #ffffff;
+    @include btn-solid ($success, $success-h);
+    &:hover {
+        color: rgba(255, 255, 255, 0.8);
+    }
+}
+
+.btn-outline-01 {
+    color: $primary;
+    @include btn-outline ($primary, $primary-h);
+    &:hover {
+        color: #ffffff;
+    }
+}
+
+.btn-outline-02 {
+    color: $info;
+    @include btn-outline ($info, $info-h);
+    &:hover {
+        color: #ffffff;
+    }
+}
+
+.btn-outline-03 {
+    color: $warning;
+    @include btn-outline ($warning, $warning-h);
+    &:hover {
+        color: #000000;
+    }
+}
+
+.btn-outline-04 {
+    color: $danger;
+    @include btn-outline ($danger, $danger-h);
+    &:hover {
+        color: #ffffff;
+    }
+}
+
+.btn-outline-05 {
+    color: $success;
+    @include btn-outline ($success, $success-h);
+    &:hover {
+        color: #ffffff;
+    }
+}
+
+.btn-icon {
+    position: relative;
+    text-align: center;
+    padding: 0.312rem 0.625rem;
+    font-size: 0.98rem;
+    border: 1px solid transparent;
+    line-height: 1.5;
+    width: 40px;
+    height: 40px;
+}
+
+.btn-icon-table {
+    padding: 0rem;
+    border-radius: 1.5rem;
+    width: 28px;
+    height: 28px;
+    line-height: 28px;
+    text-align: center;
+    font-size: 0.8rem !important;
+}
+
+.btn-fil {
+    border-radius: 0rem;
+    padding: .275rem .75rem;
+    border-top-right-radius: 0.25rem;
+    border-bottom-right-radius: 0.25rem;
+}
+
+.btn-w {
+    width: 120px;
+}
